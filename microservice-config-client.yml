@@ -1,0 +1,48 @@
+spring:
+  profiles:
+     active:  
+     - dev
+
+---    
+server:
+  port: 8201
+spring:
+  profiles: dev   # 开发环境
+  application:
+    name: microservice-config-client
+eureka:
+  client:
+    serviceUrl:
+       defaultZone: http://eureka7000.com:7000/eureka/ 
+
+---    
+server:
+  port: 8202
+spring:
+  profiles: test   # 开发环境
+  application:
+    name: microservice-config-client
+eureka:
+  client:
+    serviceUrl:
+       defaultZone: http://eureka7000.com:7000/eureka/ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
