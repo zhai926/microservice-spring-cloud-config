@@ -1,0 +1,37 @@
+spring:
+  profiles:
+    active:
+     - dev
+---
+server:
+  port: 7000  # 注册中心占用7000端口
+spring:
+  profiles: dev
+  application:
+    name:  microservice-config-eureka-client
+
+eureka:
+  client:
+    serviceUrl:
+       defaultZone: http://eureka7000.com:7000/eureka/   #由于内存限制 为了演示服务提供者集群 ，暂时不掩饰 服务集群 设置 与 Eureka Server 交互地址
+    register-with-eureka: false     # 不注册
+    fetch-registry: false   # 不通过 eurka 获取注册信息
+  instance:
+    hostname:   eureka7000.com
+
+---
+server:
+  port: 7000  # 注册中心占用7000端口
+spring:
+  profiles: test
+  application:
+    name:  microservice-config-eureka-client
+
+eureka:
+  client:
+    serviceUrl:
+       defaultZone: http://eureka7000.com:7000/eureka/   #由于内存限制 为了演示服务提供者集群 ，暂时不掩饰 服务集群 设置 与 Eureka Server 交互地址
+    register-with-eureka: false     # 不注册
+    fetch-registry: false   # 不通过 eurka 获取注册信息
+  instance:
+    hostname:   eureka7000.com
